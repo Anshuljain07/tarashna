@@ -54,7 +54,7 @@
     b.dataset.loupe = full(n);
     const w = wt(n);
     b.setAttribute('aria-label', w ? `Open this piece, ${w} grams net` : 'Open this piece');
-    b.innerHTML = `<span class="piece-img"><img src="img/p${pad(n)}-m.webp" width="720" height="720" alt="" loading="lazy" decoding="async"></span>
+    b.innerHTML = `<span class="piece-img"><img src="img/p${pad(n)}-m.webp" width="720" height="720" alt="Lightweight 22K gold necklace by Tarashna${w ? `, ${w} gm` : ''}" loading="lazy" decoding="async"></span>
       <span class="piece-wt">${w ? `${w}<small>gm net</small>` : ''}</span>`;
     track.appendChild(b);
   });

@@ -247,6 +247,7 @@ html.js .loader{display:grid}
 .foot{padding-block:3rem;font-size:.95rem;color:var(--pearl-dim)}
 .foot-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr auto;gap:2rem;align-items:start}
 .foot-brand{font-family:var(--display);font-size:2rem;color:var(--gold);line-height:1}
+.foot-tag{margin-top:.5rem}
 .foot a:hover{color:var(--pearl)}
 
 /* phone dock ------------------------------------------------------------- */
