@@ -1,629 +1,268 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tarashna Jewels - Exquisite Polki Jewelry</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            --gold-primary: #D4AF37;
-            --gold-secondary: #B8860B;
-            --gold-light: #F5E6A3;
-            --dark-charcoal: #2C2C2C;
-            --warm-white: #FAF9F6;
-            --accent-rose: #D4A574;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background: var(--warm-white);
-            color: var(--dark-charcoal);
-            overflow-x: hidden;
-        }
-
-        .brand-font {
-            font-family: 'Playfair Display', serif;
-        }
-
-        /* Navbar */
-        .navbar {
-            background: rgba(255, 255, 255, 0.95) !important;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-        }
-
-        .navbar-brand {
-            font-size: 2rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--gold-primary), var(--gold-secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .nav-link {
-            font-weight: 500;
-            color: var(--dark-charcoal) !important;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 50%;
-            width: 0;
-            height: 2px;
-            background: var(--gold-primary);
-            transition: all 0.3s ease;
-            transform: translateX(-50%);
-        }
-
-        .nav-link:hover::after {
-            width: 100%;
-        }
-
-        /* Hero Section */
-        .hero-section {
-            min-height: 100vh;
-            background: linear-gradient(135deg, #FAF9F6 0%, #F5F5DC 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero-title {
-            font-size: clamp(2.5rem, 8vw, 5rem);
-            font-weight: 300;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, var(--gold-primary), var(--accent-rose));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero-subtitle {
-            font-size: 1.2rem;
-            opacity: 0.8;
-            margin-bottom: 2rem;
-            font-weight: 300;
-        }
-
-        .btn-primary-custom {
-            background: linear-gradient(135deg, var(--gold-primary), var(--gold-secondary));
-            border: none;
-            padding: 12px 30px;
-            border-radius: 50px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
-        }
-
-        .btn-primary-custom:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(212, 175, 55, 0.4);
-        }
-
-        .hero-image {
-            position: relative;
-            height: 600px;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
-            transition: transform 0.3s ease;
-        }
-
-        .hero-image:hover {
-            transform: scale(1.02);
-        }
-
-        .hero-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* Floating Elements */
-        .floating-element {
-            position: absolute;
-            opacity: 0.1;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .floating-element:nth-child(2) {
-            animation-delay: -2s;
-        }
-
-        .floating-element:nth-child(3) {
-            animation-delay: -4s;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(180deg); }
-        }
-
-        /* Features Section */
-        .features-section {
-            padding: 100px 0;
-            background: var(--warm-white);
-        }
-
-        .feature-card {
-            text-align: center;
-            padding: 2rem;
-            border-radius: 15px;
-            transition: all 0.3s ease;
-            height: 100%;
-            background: white;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-        }
-
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        }
-
-        .feature-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--gold-primary), var(--gold-secondary));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            font-size: 2rem;
-            color: white;
-        }
-
-        /* Collection Section */
-        .collection-section {
-            padding: 100px 0;
-            background: linear-gradient(135deg, #F8F8F8 0%, #EFEFEF 100%);
-        }
-
-        .collection-card {
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            height: 400px;
-            position: relative;
-        }
-
-        .collection-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
-        }
-
-        .collection-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-
-        .collection-card:hover img {
-            transform: scale(1.05);
-        }
-
-        .collection-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(transparent, rgba(0,0,0,0.8));
-            color: white;
-            padding: 2rem;
-            transform: translateY(20px);
-            opacity: 0;
-            transition: all 0.3s ease;
-        }
-
-        .collection-card:hover .collection-overlay {
-            transform: translateY(0);
-            opacity: 1;
-        }
-
-        /* About Section */
-        .about-section {
-            padding: 100px 0;
-            background: var(--warm-white);
-        }
-
-        .about-image {
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        }
-
-        /* Contact Section */
-        .contact-section {
-            padding: 100px 0;
-            background: var(--dark-charcoal);
-            color: var(--warm-white);
-        }
-
-        .contact-info {
-            background: rgba(255,255,255,0.05);
-            padding: 2rem;
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-        }
-
-        .contact-icon {
-            color: var(--gold-primary);
-            font-size: 1.5rem;
-            margin-right: 1rem;
-        }
-
-        /* Footer */
-        .footer {
-            background: #1a1a1a;
-            color: var(--warm-white);
-            padding: 2rem 0;
-            text-align: center;
-        }
-
-        .social-icons a {
-            color: var(--gold-primary);
-            font-size: 1.5rem;
-            margin: 0 15px;
-            transition: all 0.3s ease;
-        }
-
-        .social-icons a:hover {
-            color: var(--gold-secondary);
-            transform: translateY(-3px);
-        }
-
-        /* Animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeIn 0.8s ease forwards;
-        }
-
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero-section {
-                text-align: center;
-            }
-            
-            .hero-image {
-                height: 400px;
-                margin-top: 2rem;
-            }
-            
-            .collection-card {
-                height: 300px;
-                margin-bottom: 2rem;
-            }
-        }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tarashna | Lightweight 22K hallmarked gold jewellery, Kolkata</title>
+<meta name="description" content="Tarashna makes lightweight 22K hallmarked gold jewellery in Kolkata: necklaces, chokers, kantis, temple work and earrings.">
+<meta name="theme-color" content="#020b0c">
+<link rel="canonical" href="https://tarashnajewels.in/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Tarashna">
+<meta property="og:title" content="Tarashna | Lightweight 22K hallmarked gold jewellery">
+<meta property="og:description" content="Rich to the eye. Light on the scale. Lightweight 22K hallmarked gold jewellery, made in Kolkata.">
+<meta property="og:url" content="https://tarashnajewels.in/">
+<meta property="og:image" content="https://tarashnajewels.in/img/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<script>document.documentElement.classList.add("js")</script>
+<link rel="preload" href="fonts/rozha-one-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/hanken-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="img/p08.webp" as="image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23020b0c'/%3E%3Crect x='9' y='9' width='14' height='14' fill='%23dcae4f' transform='rotate(45 16 16)'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg fixed-top">
-        <div class="container">
-            <a class="navbar-brand brand-font" href="#">Tarashna Jewels</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#home">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#collection">Collection</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero-section d-flex align-items-center">
-        <div class="floating-element" style="top: 10%; left: 10%; font-size: 3rem;">💎</div>
-        <div class="floating-element" style="top: 70%; right: 15%; font-size: 2rem;">✨</div>
-        <div class="floating-element" style="bottom: 20%; left: 20%; font-size: 2.5rem;">👑</div>
-        
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <div class="hero-content fade-in">
-                        <h1 class="hero-title brand-font">Exquisite<br>Polki Jewelry</h1>
-                        <p class="hero-subtitle">Discover the timeless elegance of traditional craftsmanship with our handcrafted polki jewelry collection. Each piece tells a story of heritage and luxury.</p>
-                        <button class="btn btn-primary-custom btn-lg">
-                            <i class="fas fa-gem me-2"></i>Explore Collection
-                        </button>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="hero-image fade-in">
-                        <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80" alt="Exquisite Polki Jewelry" class="img-fluid">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<div class="loader" aria-hidden="true">
+  <div class="loader-inner">
+    <svg class="loader-ring" viewBox="0 0 320 320"></svg>
+    <div class="loader-core">
+      <p class="loader-brand">Tarashna</p>
+      <p class="loader-note">Setting the stones</p>
+    </div>
+  </div>
+</div>
 
-    <!-- Features Section -->
-    <section class="features-section">
-        <div class="container">
-            <div class="row text-center mb-5">
-                <div class="col-lg-8 mx-auto">
-                    <h2 class="brand-font mb-4" style="font-size: 2.5rem; color: var(--gold-primary);">Why Choose Tarashna Jewels</h2>
-                    <p class="lead">Experience the perfect blend of traditional artistry and contemporary elegance</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-certificate"></i>
-                        </div>
-                        <h4>Authentic Craftsmanship</h4>
-                        <p>Each piece is meticulously handcrafted by skilled artisans using traditional polki techniques passed down through generations.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-gem"></i>
-                        </div>
-                        <h4>Premium Quality</h4>
-                        <p>We use only the finest uncut diamonds and precious metals to ensure every piece meets our exacting standards.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-heart"></i>
-                        </div>
-                        <h4>Timeless Elegance</h4>
-                        <p>Our designs celebrate the rich heritage of Indian jewelry while maintaining a contemporary appeal for modern connoisseurs.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<canvas class="cur-trail" aria-hidden="true"></canvas>
+<div class="cur-ring" aria-hidden="true"><div class="cur-lens"></div></div>
+<div class="cur-gem" aria-hidden="true"></div>
 
-    <!-- Collection Section -->
-    <section id="collection" class="collection-section">
-        <div class="container">
-            <div class="row text-center mb-5">
-                <div class="col-lg-8 mx-auto">
-                    <h2 class="brand-font mb-4" style="font-size: 2.5rem; color: var(--gold-primary);">Our Signature Collection</h2>
-                    <p class="lead">Explore our curated selection of polki masterpieces</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="collection-card">
-                        <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Bridal Polki Sets">
-                        <div class="collection-overlay">
-                            <h4>Bridal Collection</h4>
-                            <p>Stunning bridal sets that make your special day unforgettable</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="collection-card">
-                        <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Statement Necklaces">
-                        <div class="collection-overlay">
-                            <h4>Statement Necklaces</h4>
-                            <p>Bold and beautiful necklaces that command attention</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="collection-card">
-                        <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Elegant Earrings">
-                        <div class="collection-overlay">
-                            <h4>Elegant Earrings</h4>
-                            <p>Sophisticated earrings for every occasion</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<a class="skip" href="#main">Skip to content</a>
 
-    <!-- About Section -->
-    <section id="about" class="about-section">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6 mb-4 mb-lg-0">
-                    <img src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="About Tarashna Jewels" class="img-fluid about-image">
-                </div>
-                <div class="col-lg-6">
-                    <h2 class="brand-font mb-4" style="font-size: 2.5rem; color: var(--gold-primary);">Our Legacy</h2>
-                    <p class="lead mb-4">For over three generations, Tarashna Jewels has been synonymous with exceptional polki jewelry and uncompromising quality.</p>
-                    <p class="mb-4">Founded on the principles of traditional craftsmanship and artistic excellence, we have built our reputation by creating pieces that transcend time and trends. Our master craftsmen bring decades of experience to every creation, ensuring that each piece of jewelry is not just an accessory, but a work of art.</p>
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div class="d-flex align-items-center mb-3">
-                                <i class="fas fa-medal text-warning me-3 fs-4"></i>
-                                <div>
-                                    <h5 class="mb-0">50+ Years</h5>
-                                    <small class="text-muted">Of Excellence</small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="d-flex align-items-center mb-3">
-                                <i class="fas fa-users text-warning me-3 fs-4"></i>
-                                <div>
-                                    <h5 class="mb-0">10,000+</h5>
-                                    <small class="text-muted">Happy Customers</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<header class="nav">
+  <a class="nav-brand" href="#top" aria-label="Tarashna, back to top">Tarashna</a>
+  <nav class="nav-links" aria-label="Sections">
+    <a href="#range">Collection</a>
+    <a href="#making">Making</a>
+    <a href="#trade">About</a>
+  </nav>
+  <a class="btn btn-small magnetic" href="#enquire">Enquire</a>
+</header>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact-section">
-        <div class="container">
-            <div class="row text-center mb-5">
-                <div class="col-lg-8 mx-auto">
-                    <h2 class="brand-font mb-4" style="font-size: 2.5rem; color: var(--gold-primary);">Get In Touch</h2>
-                    <p class="lead">Visit our showroom or contact us to explore our exquisite collection</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 mb-4">
-                    <div class="contact-info">
-                        <i class="fas fa-map-marker-alt contact-icon"></i>
-                        <h5>Visit Our Showroom</h5>
-                        <p>123 Jewelry District<br>Mumbai, Maharashtra 400001<br>India</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 mb-4">
-                    <div class="contact-info">
-                        <i class="fas fa-phone contact-icon"></i>
-                        <h5>Call Us</h5>
-                        <p>+91 98765 43210<br>+91 98765 43211<br>Mon-Sat: 10AM-8PM</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 mb-4">
-                    <div class="contact-info">
-                        <i class="fas fa-envelope contact-icon"></i>
-                        <h5>Email Us</h5>
-                        <p>info@tarashnajewels.com<br>orders@tarashnajewels.com<br>We'll respond within 24 hours</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<main id="main">
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <h5 class="brand-font" style="color: var(--gold-primary);">Tarashna Jewels</h5>
-                    <p class="mb-0">Crafting timeless elegance since 1970</p>
-                </div>
-                <div class="col-md-6 text-md-end">
-                    <div class="social-icons">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-whatsapp"></i></a>
-                    </div>
-                </div>
-            </div>
-            <hr style="border-color: var(--gold-primary); margin: 1rem 0;">
-            <div class="text-center">
-                <p class="mb-0">&copy; 2025 Tarashna Jewels. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
+<section class="hero" id="top">
+  <canvas class="hero-dust" aria-hidden="true"></canvas>
+  <div class="hero-stage">
+    <div class="hero-piece" data-open="8" data-loupe="img/p08.webp">
+      <img src="img/p08.webp" width="1254" height="1254" alt="Gold temple necklace with a Lakshmi pendant, red and white stones, pearls and green bead drops, shown on a green velvet bust">
+      <div class="hero-light"></div>
+    </div>
+  </div>
+  <div class="scale" aria-label="This necklace weighs 25 grams net">
+    <p class="scale-label">This necklace weighs</p>
+    <p class="scale-read"><span class="scale-num">25.00</span><span class="scale-unit">gm net</span></p>
+  </div>
+  <div class="hero-copy wrap">
+    <h1 class="hero-title">
+      <span class="line">Rich to</span>
+      <span class="line">the eye.</span>
+      <span class="line">Light on</span>
+      <span class="line">the scale.</span>
+    </h1>
+    <div class="hero-lede">
+      <p>Lightweight 22K hallmarked gold jewellery, made in Kolkata.</p>
+      <div class="hero-cta">
+        <a class="btn magnetic" href="#enquire">Send an enquiry</a>
+        <a class="link" href="#range">See the collection</a>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-    
-    <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+<section class="range" id="range">
+  <div class="range-pin">
+    <div class="range-head wrap">
+      <h2 class="h2">The collection</h2>
+    </div>
+    <div class="range-view">
+      <div class="range-track"></div>
+    </div>
+    <div class="range-bar" aria-hidden="true"><span></span></div>
+  </div>
+</section>
 
-        // Navbar background change on scroll
-        window.addEventListener('scroll', function() {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-            } else {
-                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-            }
-        });
+<section class="bench" aria-labelledby="bench-title">
+  <figure class="kar bench-img">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Tools_of_a_traditional_goldsmith%2C_Goa%2C_India.jpg/1280px-Tools_of_a_traditional_goldsmith%2C_Goa%2C_India.jpg" alt="A goldsmith's drawer of punches, hammers and hand tools" loading="lazy" decoding="async">
+  </figure>
+  <div class="wrap bench-copy">
+    <h2 class="h2" id="bench-title">We make it. We don't trade it.</h2>
+    <p>Built, set and finished by our own karigars.</p>
+  </div>
+</section>
 
-        // Fade in animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+<section class="anatomy sec" id="anatomy">
+  <div class="wrap">
+    <div class="anatomy-head">
+      <h2 class="h2">Where the gold goes, and where it doesn't.</h2>
+    </div>
+    <div class="anatomy-stage">
+      <svg class="anatomy-lines" aria-hidden="true"></svg>
+      <ol class="notes notes-l">
+        <li class="note" data-pt="1"><span class="note-n">1</span><div><strong>Open setting</strong><p>No gold sheet behind the stone.</p></div></li>
+        <li class="note" data-pt="3"><span class="note-n">3</span><div><strong>Coloured stones</strong><p>Depth of colour, not gold.</p></div></li>
+      </ol>
+      <div class="anatomy-piece" data-open="23" data-loupe="img/p23.webp">
+        <img src="img/p23.webp" width="1254" height="1254" alt="Temple necklace with rows of red stones and pearls, green and gold mango drops and a Lakshmi pendant" loading="lazy" decoding="async">
+        <span class="pt" data-pt="1" style="--x:29%;--y:41%">1</span>
+        <span class="pt" data-pt="2" style="--x:70%;--y:43%">2</span>
+        <span class="pt" data-pt="3" style="--x:31%;--y:61%">3</span>
+        <span class="pt" data-pt="4" style="--x:54%;--y:76%">4</span>
+      </div>
+      <ol class="notes notes-r">
+        <li class="note" data-pt="2"><span class="note-n">2</span><div><strong>Pearls and AD stones</strong><p>Richness without added weight.</p></div></li>
+        <li class="note" data-pt="4"><span class="note-n">4</span><div><strong>29 gm net</strong><p>Weighed before it leaves us.</p></div></li>
+      </ol>
+    </div>
+  </div>
+</section>
 
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
+<section class="guess sec" id="guess">
+  <div class="wrap guess-grid">
+    <div class="guess-visual" data-open="12" data-loupe="img/p12.webp">
+      <img class="guess-img" src="img/p12-m.webp" width="720" height="720" alt="Necklace to estimate" loading="lazy">
+    </div>
+    <div class="guess-panel">
+      <h2 class="h2">Guess the weight.</h2>
+      <p class="guess-help">Set your estimate, then weigh it.</p>
+      <p class="guess-read"><span class="guess-num">40</span><span class="guess-unit">gm</span></p>
+      <label class="sr" for="guess-range">Your estimate in grams</label>
+      <input id="guess-range" class="guess-range" type="range" min="5" max="100" step="1" value="40">
+      <div class="guess-ticks" aria-hidden="true"><span>5</span><span>25</span><span>50</span><span>75</span><span>100</span></div>
+      <div class="guess-actions">
+        <button class="btn btn-gold magnetic guess-go" type="button">Weigh it</button>
+        <button class="link guess-next" type="button" hidden>Try another piece</button>
+      </div>
+      <p class="guess-verdict" aria-live="polite"></p>
+    </div>
+  </div>
+</section>
 
-        // Observe all elements with fade-in class
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
+<div class="band" aria-hidden="true">
+  <div class="band-row band-row-a"><span>Necklaces</span><i></i><span>Chokers</span><i></i><span>Kantis</span><i></i><span>Temple jewellery</span><i></i><span>Earrings</span><i></i><span>Necklaces</span><i></i><span>Chokers</span><i></i><span>Kantis</span><i></i></div>
+  <div class="band-row band-row-b"><span>AD stones</span><i></i><span>Coloured stones</span><i></i><span>Pearls</span><i></i><span>Open setting</span><i></i><span>22K hallmarked</span><i></i><span>AD stones</span><i></i><span>Coloured stones</span><i></i><span>Pearls</span><i></i></div>
+</div>
 
-        // Add hover effect to collection cards
-        document.querySelectorAll('.collection-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-10px) scale(1.02)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
-        });
+<section class="making sec" id="making">
+  <div class="wrap making-grid">
+    <div class="making-head">
+      <h2 class="h2">How a piece is made</h2>
+    </div>
+    <ol class="steps">
+      <li class="step">
+        <span class="step-n">1</span>
+        <figure class="kar"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Pouring_gold.jpg/1280px-Pouring_gold.jpg" alt="Molten gold being poured from a crucible" loading="lazy" decoding="async"></figure>
+        <div class="step-body"><h3>Alloy and melt</h3><p>Alloyed to 22K.</p></div>
+      </li>
+      <li class="step">
+        <span class="step-n">2</span>
+        <figure class="kar"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Traditional_goldsmith_at_work_in_Margao%2C_Goa%2C_India.jpg/1280px-Traditional_goldsmith_at_work_in_Margao%2C_Goa%2C_India.jpg" alt="A goldsmith shaping gold at his bench" loading="lazy" decoding="async"></figure>
+        <div class="step-body"><h3>Draw and form</h3><p>Drawn fine, shaped into frames.</p></div>
+      </li>
+      <li class="step">
+        <span class="step-n">3</span>
+        <figure class="kar"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Traditional_goldsmith_engraving_a_ring%2C_Goa%2C_India.jpg/1280px-Traditional_goldsmith_engraving_a_ring%2C_Goa%2C_India.jpg" alt="A goldsmith's hands working a small piece at the bench" loading="lazy" decoding="async"></figure>
+        <div class="step-body"><h3>Build by hand</h3><p>Every motif soldered at the bench.</p></div>
+      </li>
+      <li class="step">
+        <span class="step-n">4</span>
+        <figure class="kar kar-real"><img src="img/setting-necklace.webp" width="1200" height="900" alt="A necklace held on lac at our bench while its stones are set" loading="lazy" decoding="async"></figure>
+        <div class="step-body"><h3>Set the stones</h3><p>Set by hand, one stone at a time.</p></div>
+      </li>
+      <li class="step">
+        <span class="step-n">5</span>
+        <figure class="kar kar-own kar-sq"><img src="img/finish-product.webp" width="1254" height="1254" alt="The finished necklace on a velvet bust, set with red and green stones, pearls and a large pendant" loading="lazy" decoding="async"></figure>
+        <div class="step-body"><h3>Finish, weigh, hallmark</h3><p>Polished, weighed, hallmarked.</p></div>
+      </li>
+    </ol>
+  </div>
+</section>
 
-        // Add click effect to CTA button
-        document.querySelector('.btn-primary-custom').addEventListener('click', function() {
-            // Scroll to collection section
-            document.getElementById('collection').scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    </script>
+<section class="trade sec" id="trade">
+  <div class="wrap trade-grid">
+    <div class="trade-head">
+      <h2 class="h2">At a glance</h2>
+      <p>Manufacturer and wholesaler.</p>
+      <figure class="kar kar-real trade-img"><img src="img/setting-bench.webp" width="1200" height="750" alt="Earring tops and studs on lac at our bench, part way through stone setting" loading="lazy" decoding="async"></figure>
+    </div>
+    <dl class="spec">
+      <div class="spec-row"><dt>Purity</dt><dd>22K gold, hallmarked</dd></div>
+      <div class="spec-row"><dt>What we make</dt><dd>Necklaces, chokers, kantis, rani haram, vadanam, temple work, earrings, rings, bracelets and much more</dd></div>
+      <div class="spec-row"><dt>Set with</dt><dd>AD, coloured stones, pearls</dd></div>
+      <div class="spec-row"><dt>Trusted by</dt><dd>Leading jewellery houses across India</dd></div>
+      <div class="spec-row"><dt>Workshop</dt><dd>Burra Bazar, Kolkata</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="enquire sec" id="enquire">
+  <div class="wrap enquire-grid">
+    <div class="enquire-head">
+      <h2 class="h1b">Tell us what you're looking for.</h2>
+      <p>Opens as a ready-to-send WhatsApp message.</p>
+      <ul class="direct">
+        <li><span>Call or WhatsApp</span><a href="tel:+918910321939">+91 89103 21939</a></li>
+        <li><span>Email</span><a href="mailto:contact@tarashnajewels.in">contact@tarashnajewels.in</a></li>
+      </ul>
+    </div>
+    <form class="form" novalidate>
+      <div class="field"><label for="f-name">Your name</label><input id="f-name" name="name" autocomplete="name" required></div>
+      <div class="field"><label for="f-company">Business name <span class="opt">(optional)</span></label><input id="f-company" name="company" autocomplete="organization"></div>
+      <div class="field field-half"><label for="f-city">City</label><input id="f-city" name="city" autocomplete="address-level2"></div>
+      <div class="field field-half"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel"></div>
+      <div class="field"><label for="f-need">What are you looking for?</label><textarea id="f-need" name="need" rows="3" placeholder="For example: chokers under 30 gm in 22K"></textarea></div>
+      <p class="form-error" role="alert" hidden>Add your name so we know who is asking.</p>
+      <div class="form-actions">
+        <button class="btn magnetic" type="submit">Send on WhatsApp</button>
+        <button class="link form-mail" type="button">Send by email instead</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-grid">
+    <p class="foot-brand">Tarashna</p>
+    <p>Adi Bastala, Burra Bazar, Kolkata.</p>
+    <p><a href="tel:+918910321939">+91 89103 21939</a><br><a href="mailto:contact@tarashnajewels.in">contact@tarashnajewels.in</a></p>
+    <p class="foot-legal">© 2026 Tarashna</p>
+  </div>
+</footer>
+
+<nav class="dock" aria-label="Quick contact">
+  <a href="tel:+918910321939">Call</a>
+  <a href="https://wa.me/918910321939" target="_blank" rel="noopener">WhatsApp</a>
+  <a class="dock-main" href="#enquire">Send enquiry</a>
+</nav>
+
+<dialog class="lightbox" aria-label="Piece detail">
+  <button class="lightbox-close" type="button">Close</button>
+  <div class="lightbox-stage">
+    <img class="lightbox-img" src="" alt="">
+  </div>
+  <div class="lightbox-meta">
+    <p class="lightbox-wt"></p>
+    <a class="btn btn-small lightbox-ask" href="#enquire">Ask about this piece</a>
+  </div>
+</dialog>
+
+<script src="vendor/gsap.min.js"></script>
+<script src="vendor/ScrollTrigger.min.js"></script>
+<script src="vendor/SplitText.min.js"></script>
+<script src="vendor/lenis.min.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>
